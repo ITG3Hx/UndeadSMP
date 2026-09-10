@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Undead SMP Bot</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div id="login" class="login hidden">
+  <form class="card" id="login-form">
+    <h1>Undead SMP</h1>
+    <p class="sub">Bot Dashboard</p>
+    <input type="password" id="password" placeholder="Passwort" autocomplete="current-password" required>
+    <button type="submit">Login</button>
+    <p class="error" id="login-error"></p>
+  </form>
+</div>
+
+<div id="app" class="hidden">
+  <header>
+    <div>
+      <h1>Undead SMP Bot</h1>
+      <p class="sub" id="status">verbinde...</p>
+    </div>
+    <button class="ghost" id="logout">Logout</button>
+  </header>
+
+  <main>
+    <section class="card">
+      <div class="head">
+        <h2>Tickets</h2>
+        <label class="toggle">
+          <input type="checkbox" id="tickets-enabled">
+          <span>aktiv</span>
+        </label>
+      </div>
+
+      <label>Kategorie für neue Tickets
+        <select id="tickets-categoryId"></select>
+      </label>
+
+      <label>Team-Rollen
+        <select id="tickets-staffRoleIds" multiple size="5"></select>
+        <small>Mehrfachauswahl: Strg (Windows) bzw. Cmd (Mac) gedrückt halten.</small>
+      </label>
+
+      <label>Lead-Moderator-Rollen
+        <select id="tickets-leadModeratorRoleIds" multiple size="5"></select>
+        <small>Werden zusätzlich zu den Team-Rollen gepingt, wenn ein Ticket eskaliert wird.</small>
+      </label>
+
+      <label>Transkript-Channel
+        <select id="tickets-transcriptChannelId"></select>
+      </label>
+
+      <label>Panel Titel
+        <input type="text" id="tickets-panelTitle">
+      </label>
+
+      <label>Panel Text
+        <textarea id="tickets-panelText" rows="3"></textarea>
+      </label>
+
+      <label>Button Beschriftung
+        <input type="text" id="tickets-buttonLabel">
+      </label>
+
+      <label>Erste Nachricht im Ticket
+        <textarea id="tickets-openMessage" rows="3"></textarea>
+        <small>%user% = Erwaehnung des Erstellers</small>
+      </label>
+    </section>
+
+    <section class="card">
+      <div class="head">
+        <h2>Welcome</h2>
+        <label class="toggle">
+          <input type="checkbox" id="welcome-enabled">
+          <span>aktiv</span>
+        </label>
+      </div>
+
+      <label>Welcome-Channel
+        <select id="welcome-channelId"></select>
+      </label>
+
+      <label>Nachricht
+        <textarea id="welcome-message" rows="3"></textarea>
+        <small>%user% = Erwaehnung, %name% = Name, %count% = Mitgliederzahl</small>
+      </label>
+
+      <label>Autorole
+        <select id="welcome-autoRoleId"></select>
+        <small>Die Bot-Rolle muss in den Servereinstellungen über dieser Rolle stehen.</small>
+      </label>
+    </section>
+  </main>
+
+  <footer>
+    <span class="saved" id="saved"></span>
+    <button id="save">Speichern</button>
+  </footer>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
